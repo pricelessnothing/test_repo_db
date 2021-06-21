@@ -16,7 +16,9 @@
     "url": "https://github.com/pricelessnothing/test_repo_db/issues"
   },
   "homepage": "https://github.com/pricelessnothing/test_repo_db#readme",
-  "dependencies": {},
+  "dependencies": {
+    "simple-git": "^2.40.0"
+  },
   "devDependencies": {
     "eslint": "^7.29.0",
     "eslint-config-prettier": "^8.3.0",

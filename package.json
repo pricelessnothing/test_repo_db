@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/pricelessnothing/test_repo_db#readme",
   "dependencies": {
+    "node-fetch": "^2.6.1",
     "simple-git": "^2.40.0"
   },
   "devDependencies": {

@@ -1,9 +1,15 @@
 import { push } from './github.service'
+import { getNews } from './wordpress.service'
 
-export { buildProjectMaps }
+export { buildNewsMap }
 
-function buildProjectMaps() {
-  const data = 'yo wassup im data'
+async function buildNewsMap() {
+  const links = await getNews()
+  let file =
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>\n'
+  links.forEach((link) => {
+    file += `<url>\n\t<loc>${link}</loc>\n</url>\n`
+  })
 
-  push('sitemap.txt', data)
+  push('sitemap.xml', file)
 }

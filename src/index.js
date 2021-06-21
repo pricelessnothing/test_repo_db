@@ -1,5 +1,5 @@
 const http = require('http')
-const { buildProjectMaps } = require('./app.service')
+const { buildNewsMap } = require('./app.service')
 const { init } = require('./github.service')
 
 init()
@@ -7,9 +7,9 @@ init()
 http
   .createServer(async (req, res) => {
     switch (req.url) {
-      case '/projects':
+      case '/news':
         try {
-          await buildProjectMaps()
+          await buildNewsMap()
           res.end()
         } catch (ex) {
           res.statusCode = ex.status || 500

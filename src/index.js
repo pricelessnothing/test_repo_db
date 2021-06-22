@@ -1,5 +1,5 @@
 const http = require('http')
-const { buildNewsMap } = require('./app.service')
+const { buildNewsMap, buildProjectsMap } = require('./app.service')
 const { init } = require('./github.service')
 
 init()
@@ -16,6 +16,17 @@ http
           res.end()
         }
         break
+
+      case '/projects':
+        try {
+          await buildProjectsMap()
+          res.end()
+        } catch (ex) {
+          res.statusCode = ex.status || 500
+          res.end()
+        }
+        break
+
       default:
         res.statusCode = 404
         res.end()

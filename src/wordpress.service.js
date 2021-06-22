@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 
-export { getNews }
+export { getNews, getProjects }
 
 async function getNews() {
   const links = []
@@ -30,4 +30,13 @@ async function getNews() {
   } while (dataLength)
 
   return links
+}
+
+async function getProjects() {
+  const data = await fetch(
+    'http://dev.spbpu.com/wp-json/spbpu/v1/project-map',
+  ).then((res) => res.json())
+  const isSucceeded = data instanceof Array
+
+  return isSucceeded ? data : []
 }

@@ -24,8 +24,10 @@ function init() {
   }
 
   git = simpleGit(baseDir)
-  git.clone(
-    'https://pricelessnothing:uduvuresy7556@github.com/pricelessnothing/test_actual_repo.git',
-    baseDir,
-  )
+  git
+    .clone(
+      'https://pricelessnothing:uduvuresy7556@github.com/pricelessnothing/test_actual_repo.git',
+      baseDir,
+    )
+    .pull()
 }

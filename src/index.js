@@ -6,8 +6,12 @@ init()
 
 http
   .createServer(async (req, res) => {
-    switch (req.url) {
-      case '/news':
+    const requestParam = req.url.trim().replace(/^\/+/, '').replace(/\/+$/, '')
+
+    console.log('got request for ' + requestParam)
+
+    switch (requestParam) {
+      case 'news':
         try {
           await buildNewsMap()
           res.end()
@@ -17,7 +21,7 @@ http
         }
         break
 
-      case '/projects':
+      case 'projects':
         try {
           await buildProjectsMap()
           res.end()

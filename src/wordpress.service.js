@@ -16,9 +16,14 @@ async function getNews() {
 
     if (isSucceeded) {
       dataLength = data.length
-      console.log(dataLength)
       page++
-      links.push(...data.map((news) => news.link))
+
+      links.push(
+        ...data.map((news) => ({
+          link: news.link,
+          lastmod: news.modified_gmt,
+        })),
+      )
     } else {
       dataLength = 0
     }
